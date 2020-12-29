@@ -1,10 +1,8 @@
 import React from "react";
-import Navbar from "./Navbar";
 
 const Banner = () => {
   return (
     <div>
-      <Navbar />
       <div className="banner-container">
         <div className="info-container">
           <img
