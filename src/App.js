@@ -9,6 +9,7 @@ import MoreDetails from "./components/MoreDetails/MoreDetails";
 import Footer from "./components/Layout/Footer";
 
 import { getPosts } from "./actions/posts";
+import Navbar from "./components/Layout/Navbar";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -18,12 +19,13 @@ const App = () => {
   }, [dispatch]);
   return (
     <Router>
+      <Route path="/" component={Navbar} />
       <Route path="/" exact component={Banner} />
       <Route path="/" exact component={MoreDetails} />
       <Route path="/" exact component={Posts} />
       <Route path="/" exact component={Footer} />
 
-      <Route path="/add-post" component={Form} />
+      <Route path="/add-movie" component={Form} />
     </Router>
   );
 };
