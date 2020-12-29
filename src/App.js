@@ -1,29 +1,22 @@
 import React from "react";
 import "./App.css";
+import Banner from "./components/Layout/Banner";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Posts from "./components/Posts/Posts";
+import Form from "./components/Form/Form";
+import MoreDetails from "./components/MoreDetails/MoreDetails";
+import Footer from "./components/Layout/Footer";
 
 const App = () => {
   return (
-    <div className="header-container">
-      <h1 class="logo">
-        <span>M</span>ovies
-      </h1>
-      <div className="info-container">
-        <img
-          src="https://occ-0-325-395.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSGayG5yUUQ-ybb4DNrAi_JDUSQmOq9inkoVrrrtAZKflbDpitr7D__2iMbJSsn8kGklH61QQUHn4yJ7WAN1uWc0k8MkEZ0MzvO5.png?r=f48"
-          alt="bg"
-        />
-        <div className="details-container">
-          <h2>Jumanji: The Next Level</h2>
-          <p>
-            When Spencer goes missing, Martha, Bethany and Fridge realize they
-            must go back into Jumanji to find him — but something goes wrong.
-          </p>
-          <p>
-            <span>Starting:</span>Dwayne Johnson, Jack Black, Kevin Hart
-          </p>
-        </div>
-      </div>
-    </div>
+    <Router>
+      <Route path="/" exact component={Banner} />
+      <Route path="/" exact component={MoreDetails} />
+      <Route path="/" exact component={Posts} />
+      <Route path="/" exact component={Footer} />
+
+      <Route path="/add-post" component={Form} />
+    </Router>
   );
 };
 
