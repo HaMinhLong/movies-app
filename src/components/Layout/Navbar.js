@@ -26,25 +26,12 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/add-post" onClick={toggleMenu}>
-            Add Post
+          <Link to="/add-movie" onClick={toggleMenu}>
+            Add Movie
           </Link>
         </li>
       </ul>
     </header>
-    // <div className="nav-container">
-    //   <h1 className="logo">
-    //     <span>M</span>ovies
-    //   </h1>
-    //   <ul>
-    //     <li>
-    //       <Link to="/">Home</Link>
-    //     </li>
-    //     <li>
-    //       <Link to="/add-post">Add Post</Link>
-    //     </li>
-    //   </ul>
-    // </div>
   );
 };
 
