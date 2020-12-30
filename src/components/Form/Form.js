@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FileBase from "react-file-base64";
+
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/posts";
 
@@ -55,8 +56,10 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, title: e.target.value })
           }
+
           required
           autoFocus
+
         />
         <label htmlFor="description">Description: </label>
         <input
