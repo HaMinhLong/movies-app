@@ -12,11 +12,12 @@ import { getPosts } from "./actions/posts";
 import Navbar from "./components/Layout/Navbar";
 
 const App = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getPosts());
+  // }, [dispatch]);
+
   return (
     <Router>
       <Route path="/" component={Navbar} />

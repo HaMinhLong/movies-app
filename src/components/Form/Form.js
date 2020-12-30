@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import FileBase from "react-file-base64";
 
+import { useDispatch } from "react-redux";
+import { createPost } from "../../actions/posts";
+
 const Form = () => {
   const [postMovie, setPostMovie] = useState({
     title: "",
@@ -13,8 +16,29 @@ const Form = () => {
     subtitles: "",
     selectedFile: "",
   });
-  const handleSubmit = () => {};
-  const clear = () => {};
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createPost(postMovie));
+    clear();
+  };
+
+  const clear = () => {
+    setPostMovie({
+      title: "",
+      description: "",
+      starting: "",
+      moreDes: "",
+      watchOffline: "",
+      movieIs: "",
+      audio: "",
+      subtitles: "",
+      selectedFile: "",
+    });
+  };
+
   return (
     <div className="form-container">
       <div className="circle1"></div>
@@ -32,6 +56,10 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, title: e.target.value })
           }
+
+          required
+          autoFocus
+
         />
         <label htmlFor="description">Description: </label>
         <input
@@ -42,6 +70,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, description: e.target.value })
           }
+          required
         />
         <label htmlFor="starting">Starting: </label>
         <input
@@ -52,6 +81,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, starting: e.target.value })
           }
+          required
         />
         <label htmlFor="moreDes">More Description: </label>
         <input
@@ -62,6 +92,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, moreDes: e.target.value })
           }
+          required
         />
         <label htmlFor="watchOffline">Watch Offline: </label>
         <input
@@ -72,6 +103,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, watchOffline: e.target.value })
           }
+          required
         />
         <label htmlFor="movieIs">Movie Is: </label>
         <input
@@ -82,6 +114,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, movieIs: e.target.value })
           }
+          required
         />
         <label htmlFor="audio">Audio: </label>
         <input
@@ -92,6 +125,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, audio: e.target.value })
           }
+          required
         />
         <label htmlFor="subtitles">Subtitles: </label>
         <input
@@ -102,6 +136,7 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, subtitles: e.target.value })
           }
+          required
         />
         <div>
           <FileBase
