@@ -1,13 +1,15 @@
-const postsReducer = (posts = [], action) => {
+import * as actions from "../types/posts";
+
+const postsReducer = (state = [], action) => {
   switch (action.type) {
-    case "FETCH_ALL":
+    case actions.FETCH_POSTS:
       return action.payload;
 
-    case "CREATE":
-      return [...posts, action.payload];
+    case actions.CREATE_POST:
+      return [...state, action.payload];
 
     default:
-      return posts;
+      return state;
   }
 };
 

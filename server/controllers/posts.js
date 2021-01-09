@@ -1,11 +1,14 @@
 const postMessage = require("../models/postMessage");
+const express = require("express");
+
+const router = express.Router();
 
 const getPosts = async (req, res) => {
   try {
-    const postMessages = await postMessage.find();
-    res.status(200).json(postMessages);
+    const posts = await postMessage.find();
+    res.status(200).json(posts);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(409).json("Error: " + error.message);
   }
 };
 
@@ -22,7 +25,7 @@ const createPost = async (req, res) => {
     selectedFile,
   } = req.body;
 
-  const newPost = new postMessage({
+  const newPostMessage = new postMessage({
     title,
     description,
     starting,
@@ -33,14 +36,19 @@ const createPost = async (req, res) => {
     subtitles,
     selectedFile,
   });
+
   try {
-    await newPost.save();
-    console.log("create Post Success");
-    res.status(201).json(newPost);
+    await newPostMessage.save();
+
+    res.status(200).json(newPostMessage);
   } catch (error) {
     res.status(409).json({ message: error.message });
   }
 };
 
-module.exports = getPosts;
-module.exports = createPost;
+const deletePost = async (req, res) => {
+  const deletedPost = await postMessage.findByIdAndDelete(req.params.id);
+  res.send(deletedPost);
+};
+
+module.exports = { getPosts, createPost, deletePost, router };

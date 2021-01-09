@@ -170,12 +170,17 @@ header .navigation li a:hover {
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  color: #fff;
 }
 .posts-container .posts-list .post-container {
-  background: crimson;
   width: 415px;
-  height: 250px;
+  height: 300px;
   margin-top: 15px;
+}
+
+.posts-container .posts-list .post-container img {
+  width: 100%;
+  height: 250px;
 }
 
 /* FORM CONTAINER */
