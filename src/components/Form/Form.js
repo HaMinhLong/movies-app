@@ -23,6 +23,8 @@ const Form = () => {
     e.preventDefault();
     dispatch(createPost(postMovie));
     clear();
+
+    window.location = "/";
   };
 
   const clear = () => {
@@ -56,10 +58,8 @@ const Form = () => {
           onChange={(e) =>
             setPostMovie({ ...postMovie, title: e.target.value })
           }
-
           required
           autoFocus
-
         />
         <label htmlFor="description">Description: </label>
         <input

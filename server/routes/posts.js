@@ -1,10 +1,10 @@
 const express = require("express");
-const getPosts = require("../controllers/posts");
-const createPost = require("../controllers/posts");
+const { getPosts, createPost, deletePost } = require("../controllers/posts");
 
 const router = express.Router();
 
 router.get("/", getPosts);
 router.post("/", createPost);
+router.delete("/:id", deletePost);
 
 module.exports = router;
