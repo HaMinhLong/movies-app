@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { useDispatch } from "react-redux";
+
 import { deleteMoviePost, likeMovie } from "../../../actions/posts";
+
 
 const Post = (props) => {
   const [checkSelectButton, setCheckSelectButton] = useState(false);

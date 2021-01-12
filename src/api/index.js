@@ -7,4 +7,5 @@ export const createPost = (newPost) => axios.post(url, newPost);
 export const updateMovie = (id, updatedPost) =>
   axios.patch(`${url}/${id}`, updatedPost);
 export const deleteMovie = (id) => axios.delete(`${url}/${id}`);
+
 export const likeMovie = (id) => axios.patch(`${url}/${id}/likePost`);
