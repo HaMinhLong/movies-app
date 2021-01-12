@@ -29,3 +29,22 @@ export const updateMoviePost = (id, movie) => async (dispatch) => {
     console.log("Error Update Post: " + error.message);
   }
 };
+
+export const deleteMoviePost = (id) => async (dispatch) => {
+  try {
+    await await api.deleteMovie(id);
+
+    dispatch({ type: actions.DELETE_MOVIE, payload: id });
+  } catch (error) {
+    console.log("Error Delete Post: " + error.message);
+  }
+};
+
+export const likeMovie = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likeMovie(id);
+    dispatch({ type: actions.LIKE_MOVIE, payload: data });
+  } catch (error) {
+    console.log("Error Like Post: " + error.message);
+  }
+};
