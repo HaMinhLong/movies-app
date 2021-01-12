@@ -1,5 +1,6 @@
 const postMessage = require("../models/postMessage");
 const express = require("express");
+const mongoose = require("mongoose");
 
 const router = express.Router();
 
@@ -46,9 +47,22 @@ const createPost = async (req, res) => {
   }
 };
 
+const updatePost = async (req, res) => {
+  const { id: _id } = req.params;
+  const post = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(_id))
+    return res.status(404).json("No post with that id");
+
+  const updatePost = await postMessage.findByIdAndUpdate(_id, post, {
+    new: true,
+  });
+  res.json(updatePost);
+};
+
 const deletePost = async (req, res) => {
   const deletedPost = await postMessage.findByIdAndDelete(req.params.id);
   res.send(deletedPost);
 };
 
-module.exports = { getPosts, createPost, deletePost, router };
+module.exports = { getPosts, createPost, updatePost, deletePost, router };

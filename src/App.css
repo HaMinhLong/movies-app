@@ -13,6 +13,7 @@ p {
   color: #fff;
   font-size: 18px;
 }
+
 /* NAVBAR */
 header {
   position: fixed;
@@ -24,12 +25,12 @@ header {
   justify-content: space-between;
   align-items: center;
   transition: 0.7s;
-  z-index: 1000;
 }
 header.sticky {
   background: rgba(0, 0, 0, 1);
   padding: 10px 100px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 header .logo {
   color: #fff;
@@ -75,6 +76,7 @@ header .navigation li a:hover {
   background: url("./images/bg.jpg");
   background-size: cover;
   background-position: center;
+  z-index: -2;
 }
 
 .banner-container::after {
@@ -86,6 +88,7 @@ header .navigation li a:hover {
   height: 100%;
   background: rgba(0, 0, 0, 1);
   filter: blur(150px);
+  z-index: -1;
 }
 
 .banner-container .info-container {
@@ -96,7 +99,6 @@ header .navigation li a:hover {
   height: 100%;
   padding: 0px 100px;
   letter-spacing: 2px;
-  z-index: 100;
 }
 .banner-container .info-container img {
   width: 600px;
@@ -173,14 +175,172 @@ header .navigation li a:hover {
   color: #fff;
 }
 .posts-container .posts-list .post-container {
+  position: relative;
   width: 415px;
-  height: 300px;
+  height: 350px;
   margin-top: 15px;
 }
 
 .posts-container .posts-list .post-container img {
   width: 100%;
   height: 250px;
+}
+
+.posts-container .posts-list .post-container a {
+  text-decoration: none;
+}
+#post-date {
+  color: gray;
+  font-size: 14px;
+  font-style: italic;
+}
+#starting {
+  font-style: italic;
+  font-size: 16px;
+  color: gray;
+}
+#select-button {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  height: 25px;
+  width: 50px;
+  background: transparent;
+}
+#button {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+  height: 5px;
+  width: 5px;
+  background: #fff;
+  border-radius: 50%;
+}
+#button::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  height: 5px;
+  width: 5px;
+  background: #fff;
+  border-radius: 50%;
+}
+#button::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  height: 5px;
+  width: 5px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+#select-box {
+  position: absolute;
+  top: 30px;
+  width: 70px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#select-box p {
+  line-height: 30px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#select-box p:hover:nth-child(1) {
+  color: teal;
+}
+#select-box p:hover:nth-child(2) {
+  color: tomato;
+}
+#movie-details {
+  position: absolute;
+  top: 45px;
+  left: 105px;
+  width: 1600px;
+  height: 800px;
+}
+#movie-details h2 {
+  text-align: center;
+  font-size: 30px;
+  margin: 0px 0px 30px;
+}
+#movie-details img {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  z-index: -1;
+  filter: blur(10px);
+}
+#movie-details form {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  position: absolute;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 60px;
+}
+#movie-details form label {
+  color: white;
+  font-weight: 700;
+}
+#movie-details form input[type="text"] {
+  height: 25px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  border-bottom: 1px solid white;
+  margin-bottom: 15px;
+}
+#movie-details form input[type="text"]:focus {
+  border-bottom: 2px solid white;
+  font-size: 16px;
+}
+#movie-details form input[type="submit"] {
+  display: inline-block;
+  border: none;
+  height: 40px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  background: aqua;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#movie-details form button {
+  display: inline-block;
+  border: none;
+  background: brown;
+  height: 40px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+}
+.close-modal {
+  position: absolute;
+  top: 50px;
+  right: 30px;
+  z-index: 1000000;
+  height: 30px;
+  width: 30px;
+  background: #fff;
+  color: red;
+  border: 1px solid red;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* FORM CONTAINER */
@@ -202,7 +362,7 @@ header .navigation li a:hover {
   background: aqua;
   clip-path: circle(300px at right 400px);
 }
-form {
+.form-container form {
   width: 600px;
   color: #fff;
   position: absolute;
@@ -215,29 +375,28 @@ form {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50px;
 }
-
-form h2 {
+.form-container form h2 {
   text-align: center;
   margin-bottom: 50px;
   letter-spacing: 2px;
 }
-form h2 span:nth-child(1) {
+.form-container form h2 span:nth-child(1) {
   color: brown;
   font-size: 40px;
 }
-form h2 span:nth-child(2) {
+.form-container form h2 span:nth-child(2) {
   color: aqua;
   font-size: 40px;
 }
-form input {
+.form-container form input {
   width: 100%;
   margin-bottom: 20px;
   transition: 0.5s;
 }
-form input[type="text"]:focus {
+.form-container form input[type="text"]:focus {
   border-bottom: 1px solid brown;
 }
-form input[type="text"] {
+.form-container form input[type="text"] {
   border: none;
   border-bottom: 1px solid #fff;
   background: transparent;
@@ -245,7 +404,7 @@ form input[type="text"] {
   height: 30px;
   color: #ffffff;
 }
-form input[type="submit"] {
+.form-container form input[type="submit"] {
   display: inline-block;
   border: none;
   height: 40px;
@@ -254,7 +413,7 @@ form input[type="submit"] {
   font-weight: 500;
   background: aqua;
 }
-form button {
+.form-container form button {
   display: inline-block;
   border: none;
   background: brown;
