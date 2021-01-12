@@ -29,3 +29,13 @@ export const updateMoviePost = (id, movie) => async (dispatch) => {
     console.log("Error Update Post: " + error.message);
   }
 };
+
+export const deleteMoviePost = (id) => async (dispatch) => {
+  try {
+    await await api.deleteMovie(id);
+
+    dispatch({ type: actions.DELETE_MOVIE, payload: id });
+  } catch (error) {
+    console.log(error.message);
+  }
+};

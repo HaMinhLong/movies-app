@@ -75,7 +75,7 @@ const Posts = () => {
               X
             </button>
             <div id="movie-details">
-              <h2>Update {updateMovie.title}</h2>
+              <h2>Update {movie.title}</h2>
               <img src={updateMovie.selectedFile} alt={updateMovie.title} />
               <form onSubmit={handleSubmit}>
                 <label htmlFor="title">Tittle: </label>
