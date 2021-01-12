@@ -36,6 +36,17 @@ export const deleteMoviePost = (id) => async (dispatch) => {
 
     dispatch({ type: actions.DELETE_MOVIE, payload: id });
   } catch (error) {
-    console.log(error.message);
+
+    console.log("Error Delete Post: " + error.message);
+  }
+};
+
+export const likeMovie = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.likeMovie(id);
+    dispatch({ type: actions.LIKE_MOVIE, payload: data });
+  } catch (error) {
+    console.log("Error Like Post: " + error.message);
+
   }
 };

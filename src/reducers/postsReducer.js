@@ -9,6 +9,7 @@ const postsReducer = (state = [], action) => {
       return [...state, action.payload];
 
     case actions.UPDATE_MOVIE:
+    case actions.LIKE_MOVIE:
       return state.map((post) =>
         post._id === action.payload._id ? action.payload : post
       );
