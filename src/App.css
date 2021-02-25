@@ -187,6 +187,7 @@ header .navigation li a:hover {
 .posts-container .posts-list .post-container li {
   list-style: none;
 }
+
 .posts-container .posts-list .post-container i {
   font-size: 20px;
   transition: 0.2s;
@@ -194,6 +195,7 @@ header .navigation li a:hover {
 .posts-container .posts-list .post-container i:hover {
   font-size: 25px;
 }
+
 .posts-container .posts-list .post-container img {
   width: 100%;
   height: 250px;
