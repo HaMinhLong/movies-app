@@ -9,7 +9,7 @@ const getPosts = async (req, res) => {
     const posts = await postMessage.find();
     res.status(200).json(posts);
   } catch (error) {
-    res.status(409).json("Error: " + error.message);
+    res.status(409).json("Error get posts: " + error.message);
   }
 };
 
@@ -61,8 +61,48 @@ const updatePost = async (req, res) => {
 };
 
 const deletePost = async (req, res) => {
-  const deletedPost = await postMessage.findByIdAndDelete(req.params.id);
-  res.send(deletedPost);
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  await postMessage.findByIdAndRemove(id);
+
+  res.json({ message: "Post deleted successfully." });
 };
 
-module.exports = { getPosts, createPost, updatePost, deletePost, router };
+const likePost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id))
+    return res.status(404).send(`No post with id: ${id}`);
+
+  const post = await postMessage.findById(id);
+  const updatePost = await postMessage.findByIdAndUpdate(
+    id,
+    { likeCount: post.likeCount + 1 },
+    { new: true }
+  );
+  res.json(updatePost);
+};
+
+const getPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await postMessage.findById(id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(409).json("Error get post: " + error.message);
+  }
+};
+
+module.exports = {
+  getPosts,
+  createPost,
+  updatePost,
+  deletePost,
+  likePost,
+  getPost,
+  router,
+};

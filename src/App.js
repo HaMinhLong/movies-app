@@ -1,23 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Banner from "./components/Layout/Banner";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
 import MoreDetails from "./components/MoreDetails/MoreDetails";
 import Footer from "./components/Layout/Footer";
+import SinglePost from "./components/Posts/Post/SinglePost";
 
-import { getPosts } from "./actions/posts";
 import Navbar from "./components/Layout/Navbar";
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [dispatch]);
-
   return (
     <Router>
       <Route path="/" component={Navbar} />
@@ -25,7 +18,7 @@ const App = () => {
       <Route path="/" exact component={MoreDetails} />
       <Route path="/" exact component={Posts} />
       <Route path="/" exact component={Footer} />
-
+      <Route path="/posts/:id" exact component={SinglePost} />
       <Route path="/add-movie" component={Form} />
     </Router>
   );

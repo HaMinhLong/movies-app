@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Post from "./Post/Post";
 import { useSelector, useDispatch } from "react-redux";
 import Fade from "react-reveal/Fade";
@@ -6,8 +6,14 @@ import Modal from "react-modal";
 import Zoom from "react-reveal/Zoom";
 import FileBase from "react-file-base64";
 import { updateMoviePost } from "../../actions/posts";
-
+import { getPosts } from "../../actions/posts";
 const Posts = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   const posts = useSelector((state) => state.posts);
   const [movie, setMovie] = useState("");
 
@@ -23,7 +29,7 @@ const Posts = () => {
     selectedFile: "",
   });
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const openModal = (movie) => {
     setMovie(movie);
