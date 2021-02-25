@@ -27,7 +27,7 @@ const Post = (props) => {
           </div>
         )}
       </div>
-      <Link to={"/" + props.post._id}>
+      <Link to={"/posts/" + props.post._id}>
         <img src={props.post.selectedFile} alt={props.post.title} />
         <p>
           <span>{props.post.title}</span>
@@ -43,7 +43,9 @@ const Post = (props) => {
             className="far fa-thumbs-up"
             onClick={() => dispatch(likeMovie(props.post._id))}
           ></i>
-          <span> </span>
+
+          &nbsp;&nbsp;&nbsp;
+
           {props.post.likeCount} like
         </li>
         <li>

@@ -5,6 +5,9 @@ const postsReducer = (state = [], action) => {
     case actions.FETCH_POSTS:
       return action.payload;
 
+    case actions.FETCH_POST:
+      return action.payload;
+
     case actions.CREATE_POST:
       return [...state, action.payload];
 

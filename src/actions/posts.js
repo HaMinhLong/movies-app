@@ -10,6 +10,14 @@ export const getPosts = () => async (dispatch) => {
   }
 };
 
+export const getPost = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.getPost(id);
+
+    dispatch({ type: actions.FETCH_POST, payload: data });
+  } catch (error) {}
+};
+
 export const createPost = (post) => async (dispatch) => {
   try {
     const { data } = await api.createPost(post);
@@ -32,7 +40,8 @@ export const updateMoviePost = (id, movie) => async (dispatch) => {
 
 export const deleteMoviePost = (id) => async (dispatch) => {
   try {
-    await await api.deleteMovie(id);
+
+    await api.deleteMovie(id);
 
     dispatch({ type: actions.DELETE_MOVIE, payload: id });
   } catch (error) {
