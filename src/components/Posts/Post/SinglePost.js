@@ -20,13 +20,16 @@ const SinglePost = (props) => {
   //   backgroundImage: "url(" + post.selectedFile + ")",
   // };
 
+
   return (
     <div>
       <div>
+
         <div className="banner-container">
           <div className="img-box">
             <img src={post.selectedFile} alt="" />
           </div>
+
           <Fade left cascade>
             <div className="info-container">
               <div className="details-container">
@@ -49,6 +52,7 @@ const SinglePost = (props) => {
       <div className="more-details-container">
         <h1>More Details</h1>
         <Fade bottom cascade>
+
           <div className="card-list-item">
             <div className="card-item">
               <p>Watch offline</p>
@@ -63,6 +67,7 @@ const SinglePost = (props) => {
               <p>{post.audio}</p>
             </div>
             <div className="card-item">
+
               <p>Subtitles</p>
               <p>{post.subtitles}</p>
             </div>

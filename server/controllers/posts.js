@@ -69,6 +69,7 @@ const deletePost = async (req, res) => {
   await postMessage.findByIdAndRemove(id);
 
   res.json({ message: "Post deleted successfully." });
+
 };
 
 const likePost = async (req, res) => {
@@ -95,6 +96,7 @@ const getPost = async (req, res) => {
   } catch (error) {
     res.status(409).json("Error get post: " + error.message);
   }
+
 };
 
 module.exports = {
@@ -103,6 +105,8 @@ module.exports = {
   updatePost,
   deletePost,
   likePost,
+
   getPost,
+
   router,
 };
