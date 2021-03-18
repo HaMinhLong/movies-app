@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer>
       <p>Questions? Contact us.</p>
-      <div className="card-list">
+      <div className="card-list-item">
         <Fade left cascade>
-          <div className="card">
+          <div className="card-item">
             <Link to="/">FAQ</Link>
             <Link to="/">Investor Relations</Link>
             <Link to="/">Privacy</Link>
@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
         </Fade>
         <Fade bottom cascade>
-          <div className="card">
+          <div className="card-item">
             <Link to="/">Help Center</Link>
             <Link to="/">Jobs</Link>
             <Link to="/">Cookie Preferences</Link>
@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
         </Fade>
         <Fade bottom cascade>
-          <div className="card">
+          <div className="card-item">
             <Link to="/">Account</Link>
             <Link to="/">Ways to Watch</Link>
             <Link to="/">Corporate Information</Link>
@@ -32,7 +32,7 @@ const Footer = () => {
           </div>
         </Fade>
         <Fade right cascade>
-          <div className="card">
+          <div className="card-item">
             <Link to="/">Media Center</Link>
             <Link to="/">Terms of Use</Link>
             <Link to="/">Contact Us</Link>

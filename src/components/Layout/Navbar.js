@@ -7,19 +7,17 @@ window.addEventListener("scroll", () => {
 });
 
 const toggleMenu = () => {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navigation = document.getElementById("navigation");
-  menuToggle.classList.toggle("active");
-  navigation.classList.toggle("active");
+  var header = document.querySelector("header");
+  header.classList.toggle("active");
 };
 const Navbar = () => {
   return (
-    <header>
+    <header id="header">
       <a href="/" className="logo">
         <span>M</span>ovies
       </a>
-      <div className="menu-toggle" id="menu-toggle" onClick={toggleMenu}></div>
-      <ul className="navigation" id="navigation">
+      <div className="toggle" id="toggle" onClick={toggleMenu}></div>
+      <ul>
         <li>
           <Link to="/" onClick={toggleMenu}>
             Home

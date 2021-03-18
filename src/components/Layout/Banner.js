@@ -1,10 +1,14 @@
 import React from "react";
 import Fade from "react-reveal/Fade";
+import bg from "../../images/bg.jpg";
 
 const Banner = () => {
   return (
     <div>
       <div className="banner-container">
+        <div className="img-box">
+          <img src={bg} alt="" />
+        </div>
         <Fade left cascade>
           <div className="info-container">
             <img

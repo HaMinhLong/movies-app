@@ -49,7 +49,6 @@ const Form = () => {
         <h2>
           <span>C</span>reating a <span>M</span>ovie
         </h2>
-        <label htmlFor="title">Tittle: </label>
         <input
           type="text"
           name="title"
@@ -60,8 +59,8 @@ const Form = () => {
           }
           required
           autoFocus
+          placeholder="Title"
         />
-        <label htmlFor="description">Description: </label>
         <input
           type="text"
           name="description"
@@ -71,8 +70,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, description: e.target.value })
           }
           required
+          placeholder="Description"
         />
-        <label htmlFor="starting">Starting: </label>
         <input
           type="text"
           name="starting"
@@ -82,8 +81,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, starting: e.target.value })
           }
           required
+          placeholder="Starting"
         />
-        <label htmlFor="moreDes">More Description: </label>
         <input
           type="text"
           name="moreDes"
@@ -93,8 +92,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, moreDes: e.target.value })
           }
           required
+          placeholder="More Description"
         />
-        <label htmlFor="watchOffline">Watch Offline: </label>
         <input
           type="text"
           name="watchOffline"
@@ -104,8 +103,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, watchOffline: e.target.value })
           }
           required
+          placeholder="Watch Offline"
         />
-        <label htmlFor="movieIs">Movie Is: </label>
         <input
           type="text"
           name="movieIs"
@@ -115,8 +114,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, movieIs: e.target.value })
           }
           required
+          placeholder="Movie Is"
         />
-        <label htmlFor="audio">Audio: </label>
         <input
           type="text"
           name="audio"
@@ -126,8 +125,8 @@ const Form = () => {
             setPostMovie({ ...postMovie, audio: e.target.value })
           }
           required
+          placeholder="Audio"
         />
-        <label htmlFor="subtitles">Subtitles: </label>
         <input
           type="text"
           name="subtitles"
@@ -137,6 +136,7 @@ const Form = () => {
             setPostMovie({ ...postMovie, subtitles: e.target.value })
           }
           required
+          placeholder="Subtitles"
         />
         <div>
           <FileBase
