@@ -119,6 +119,7 @@ header ul li a:hover {
 .banner-container .img-box img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 .banner-container .info-container {
@@ -629,7 +630,10 @@ footer > p {
     height: 2px;
     background: #fff;
     z-index: 1;
+    -webkit-box-shadow: 0 10px 0 #fff;
     box-shadow: 0 10px 0 #fff;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
   }
   header .toggle:after {
@@ -640,6 +644,8 @@ footer > p {
     height: 2px;
     background: #fff;
     z-index: 1;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
   }
   header ul {
@@ -683,13 +689,25 @@ footer > p {
     position: fixed;
     top: 68px;
     left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.8);
   }
   .banner-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     margin-top: 100px;
   }
@@ -701,6 +719,7 @@ footer > p {
     height: 40vh;
   }
   .banner-container .img-box img {
+    -o-object-fit: contain;
     object-fit: contain;
   }
   .banner-container .info-container {
@@ -771,6 +790,9 @@ footer > p {
 
 @media (max-width: 375px) {
   .banner-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .banner-container .img-box {
@@ -778,6 +800,7 @@ footer > p {
     height: 40vh;
   }
   .banner-container .img-box img {
+    -o-object-fit: contain;
     object-fit: contain;
   }
   .banner-container::after {
@@ -815,6 +838,8 @@ footer > p {
     padding: 0px 10px;
   }
   .more-details-container .card-list-item {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
   }
   .more-details-container {
